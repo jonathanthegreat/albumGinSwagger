@@ -1,0 +1,85 @@
+basePath: /
+definitions:
+  main.album:
+    properties:
+      artist:
+        type: string
+      id:
+        type: string
+      price:
+        type: number
+      title:
+        type: string
+    type: object
+info:
+  contact:
+    email: arian.khanjani@gmail.com
+    name: API Support
+  description: Managing tool for album records
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Album Store API
+  version: "1.0"
+paths:
+  /albums:
+    get:
+      consumes:
+      - application/json
+      description: Get details of all albums
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/main.album'
+            type: array
+      summary: Get details of all albums
+      tags:
+      - albums
+    post:
+      consumes:
+      - application/json
+      description: Create a new album with the input payload
+      parameters:
+      - description: Create Album
+        in: body
+        name: album
+        required: true
+        schema:
+          $ref: '#/definitions/main.album'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.album'
+      summary: Create a new album record
+      tags:
+      - albums
+  /albums/{id}:
+    get:
+      description: Get details of an album
+      parameters:
+      - description: Album ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/main.album'
+            type: array
+      summary: Get details of an album
+      tags:
+      - albums/:id
+swagger: "2.0"
