@@ -35,6 +35,7 @@ var albums = []album{
 // @BasePath /
 func main() {
 	config.Connect()
+	gin.ForceConsoleColor()
 	router := gin.Default()
 	router.GET("/albums", getAlbums)
 	router.POST("/albums", postAlbums)
