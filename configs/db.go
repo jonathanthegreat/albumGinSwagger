@@ -1,6 +1,6 @@
 package config
 
-import (
+/*import (
 	"github.com/go-pg/pg/v9"
 	"log"
 	"os"
@@ -23,3 +23,4 @@ func Connect() *pg.DB {
 	log.Printf("Connected to db")
 	return db
 }
+*/

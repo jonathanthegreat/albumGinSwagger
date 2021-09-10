@@ -11,6 +11,9 @@ github.com/alecthomas/template/parse
 # github.com/codemodus/kace v0.5.1
 github.com/codemodus/kace
 github.com/codemodus/kace/ktrie
+# github.com/gin-contrib/cors v1.3.1
+## explicit
+github.com/gin-contrib/cors
 # github.com/gin-contrib/sse v0.1.0
 github.com/gin-contrib/sse
 # github.com/gin-gonic/gin v1.7.3
@@ -54,6 +57,9 @@ github.com/go-playground/validator/v10
 # github.com/golang/protobuf v1.5.2
 ## explicit
 github.com/golang/protobuf/proto
+# github.com/jinzhu/gorm v1.9.16
+## explicit
+github.com/jinzhu/gorm
 # github.com/jinzhu/inflection v1.0.0
 github.com/jinzhu/inflection
 # github.com/josharian/intern v1.0.0

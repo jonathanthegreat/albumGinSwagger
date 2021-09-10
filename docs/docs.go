@@ -18,21 +18,16 @@ var doc = `{
     "info": {
         "description": "{{.Description}}",
         "title": "{{.Title}}",
-        "termsOfService": "http://swagger.io/terms/",
         "contact": {
             "name": "API Support",
             "email": "arian.khanjani@gmail.com"
-        },
-        "license": {
-            "name": "Apache 2.0",
-            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
         },
         "version": "{{.Version}}"
     },
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/albums": {
+        "/v1/albums": {
             "get": {
                 "description": "Get details of all albums",
                 "consumes": [
@@ -41,17 +36,14 @@ var doc = `{
                 "produces": [
                     "application/json"
                 ],
-                "tags": [
-                    "albums"
-                ],
-                "summary": "Get details of all albums",
+                "summary": "Get all albums",
                 "responses": {
                     "200": {
                         "description": "OK",
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/main.album"
+                                "$ref": "#/definitions/models.Album"
                             }
                         }
                     }
@@ -65,18 +57,15 @@ var doc = `{
                 "produces": [
                     "application/json"
                 ],
-                "tags": [
-                    "albums"
-                ],
                 "summary": "Create a new album record",
                 "parameters": [
                     {
                         "description": "Create Album",
-                        "name": "album",
+                        "name": "models.Album",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/main.album"
+                            "$ref": "#/definitions/models.Album"
                         }
                     }
                 ],
@@ -84,20 +73,17 @@ var doc = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/main.album"
+                            "$ref": "#/definitions/models.Album"
                         }
                     }
                 }
             }
         },
-        "/albums/{id}": {
+        "/v1/albums/{id}": {
             "get": {
                 "description": "Get details of an album",
                 "produces": [
                     "application/json"
-                ],
-                "tags": [
-                    "albums/:id"
                 ],
                 "summary": "Get details of an album",
                 "parameters": [
@@ -115,7 +101,7 @@ var doc = `{
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/main.album"
+                                "$ref": "#/definitions/models.Album"
                             }
                         }
                     }
@@ -124,7 +110,7 @@ var doc = `{
         }
     },
     "definitions": {
-        "main.album": {
+        "models.Album": {
             "type": "object",
             "properties": {
                 "artist": {
@@ -155,7 +141,7 @@ type swaggerInfo struct {
 
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = swaggerInfo{
-	Version:     "1.0",
+	Version:     "0.1",
 	Host:        "",
 	BasePath:    "/",
 	Schemes:     []string{},
